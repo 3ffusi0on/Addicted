@@ -1,10 +1,11 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3.4
 import sys
 from PyQt4 import QtGui
 import re
 import os, sys
 import subprocess
-import urllib2
+import urllib.request
+import urllib.error
 import hashlib
 
 #TODO
@@ -79,16 +80,18 @@ class UI(QtGui.QWidget):
         headers = { 'User-Agent' : 'SubDB/1.0 (Addict7ed-to-Xdcc/1.0; http://github.com/3ffusi0on/Addict7ed-to-Xdcc)' }
         url = "http://api.thesubdb.com/?action=download&hash=" + track_hash + "&language=en"
         try:
-            request = urllib2.Request(url, '', headers)
-            response = urllib2.urlopen(request).read()
+            request = urllib.request.Request(url, None, headers)
+            response = urllib.request.urlopen(request).read()
+            print(response)
 
             #Saving the subtitle fileo
             dest_file = filename.replace(filename[-3:], 'srt')
             print("Saving subtitle as :" + dest_file)
-            subtitle_file = open(dest_file, 'w')
+            subtitle_file = open(dest_file, 'wb')
             subtitle_file.write(response)
             subtitle_file.close()
-        except urllib2.HTTPError, e:
+        except urllib.error.HTTPError as e:
+            #TODO check error (missing subtitle on server)
             if e.code == 404:
                 print("404 Not Found: No subtitle available for the movie")
 
