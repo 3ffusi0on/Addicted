@@ -28,7 +28,7 @@ server = ""
 
 ##Downloading from dcc server
 print("Downloading file '" + file_number + "' from bot '" + bot_name + "'")
-output = subprocess.Popen(["ruby", "./RubyXDCCGetter/xdcc.rb", server, bot_name, file_number,
+output = subprocess.Popen(["ruby", "-W0", "./RubyXDCCGetter/xdcc.rb", server, bot_name, file_number,
                 "-c", channel_name],
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE).communicate()[0]
 
