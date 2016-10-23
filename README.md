@@ -1,7 +1,10 @@
-Addict7ed-to-Xdcc
-=================
+Addict7ed
+=========
 
-Script to download TV Series from XDCC server with associated Subtitles.
+Little tools to download subtitles corresponding to your movie/serie.
 
 Using http://thesubdb.com/ API to get the subtitles.
-The XDCC server will stay secret in order to protect the owner.
+
+
+
+Fell free to propose any improuvement ou changes.

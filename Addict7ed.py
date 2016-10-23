@@ -29,7 +29,7 @@ class UI(QtGui.QWidget):
 
     def initUI(self):
 
-        self.setGeometry(0, 0, 300, 120)
+        self.setGeometry(20, 40, 300, 120)
         self.setWindowTitle('Addict7ed-to-Xdcc')
 
         self.link = QtGui.QLineEdit()
